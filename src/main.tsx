@@ -10,6 +10,7 @@ import Error404Page from "./app/pages/Error404Page";
 import { Toaster } from "react-hot-toast";
 import InitPollPage from "./app/pages/InitPollPage";
 import PollPage from "./app/pages/PollPage";
+import CategoryPage from "./app/pages/CategoryPage";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "/categories",
+        element: <CategoryPage />
       },
       {
         path: "/p",

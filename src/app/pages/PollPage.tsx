@@ -13,12 +13,16 @@ import { Label } from "../components/ui/label";
 import useFullscreen from "../hooks/useFullscreen";
 import toast from "react-hot-toast";
 import { useAuthStore } from "../store/useAuthStore";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { motion } from "framer-motion";
 
 export default function PollPage() {
   const { id: pollId } = useParams();
+
+  const [searchParams] = useSearchParams();
+
+  const categoryCode = searchParams.get('category')
 
   const { handleFullscreen, isFullscrenActive } = useFullscreen();
 
@@ -106,7 +110,7 @@ export default function PollPage() {
           />
         ) : null}
 
-        <div className="flex items-center gap-2 justify-center">
+        <div className="fixed left-2 bottom-2 flex items-center gap-2 justify-center">
           <Switch
             id="fullscreen-mode"
             onClick={handleFullscreen}
@@ -118,7 +122,7 @@ export default function PollPage() {
         </div>
       </motion.section>
       <div className="fixed bottom-2 right-2">
-        <Link to={"/p"}>
+        <Link to={`/p${categoryCode ? `?category=${categoryCode}` : ''}`}>
           <Button>Outra enquete</Button>
         </Link>
       </div>

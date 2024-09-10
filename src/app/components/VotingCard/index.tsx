@@ -30,10 +30,11 @@ export default function VotingCard({ poll, onVote }: Props) {
   };
 
   return (
-    <Card className="w-full max-w-lg mx-auto min-h-fit h-[35rem] sm:h-[30rem]">
+    <Card className="w-full max-w-lg mx-auto min-h-fit h-[38rem] sm:h-[32rem]">
       {poll ? (
         <>
           <CardHeader>
+            <span className="text-muted-foreground text-center">Categoria: {poll.category.name}</span>
             <CardTitle className="text-xl font-bold text-center">
               {poll.title}
             </CardTitle>

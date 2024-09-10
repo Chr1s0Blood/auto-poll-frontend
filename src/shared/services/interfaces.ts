@@ -32,7 +32,11 @@ export type TOptionWithVotes = TOption & {
   };
 };
 
-export type TQuestionWithOptions = TQuestion & {
+export type TQuestionWithCategory = TQuestion & {
+  category: TCategory;
+}
+
+export type TQuestionWithOptions = TQuestionWithCategory & {
   options: TOptionWithVotes[];
 };
 
@@ -62,3 +66,18 @@ export type TVote = {
   createdAt: Date;
   deletedAt: Date | null;
 };
+
+
+// Categories
+
+export type TCategory = {
+  id: string;
+  name: string;
+  code: string;
+}
+
+export type TCategoryWithQuestionsCount = TCategory & {
+  _count: {
+    question: number;
+  }
+}

@@ -1,0 +1,1 @@
+export const ONE_MINUTE_MILLIS = 60000;

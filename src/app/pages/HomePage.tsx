@@ -11,9 +11,12 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold">Bem-vindo ao AutoPoll</h2>
       </header>
 
-      <div>
+      <div className="flex items-center gap-2 justify-center">
         <Link to={"/p"}>
           <Button size={'lg'}>Enquete aleatória</Button>
+        </Link>
+        <Link to={"/categories"}>
+          <Button variant={'secondary'} size={'lg'}>Ver categorias</Button>
         </Link>
       </div>
     </main>

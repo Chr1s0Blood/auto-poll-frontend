@@ -6,22 +6,22 @@ import apiFetcher from "@/shared/utils/apiFetcher";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function InitPollPage() {
-  //   const [searchParams] = useSearchParams(); FUTURE
+  const [searchParams] = useSearchParams();
 
   const navigate = useNavigate();
 
-  //   const themeCode = searchParams.get("theme"); FUTURE
+  const categoryCode = searchParams.get("category");
 
   const { data: responsePoll } = useQuery({
-    queryKey: ["question-random"],
+    queryKey: ["question-random", categoryCode],
     queryFn: () =>
       apiFetcher<ResponseJsonApi<TQuestionWithOptions>>(
-        `/questions/random`,
+        `/questions/random?category=${categoryCode}`,
         {
-            credentials: 'include'
+          credentials: "include",
         },
         true
       ),
@@ -38,17 +38,19 @@ export default function InitPollPage() {
 
   useEffect(() => {
     if (responsePoll?.data) {
-      navigate(`/p/${responsePoll.data.id}`);
+      navigate(
+        `/p/${responsePoll.data.id}${
+          categoryCode ? `?category=${categoryCode}` : ""
+        }`
+      );
     }
-  }, [responsePoll, navigate]);
+  }, [responsePoll, navigate, categoryCode]);
 
   useEffect(() => {
-    if (!responsePoll?.data && responsePoll?.status == 'success') {
-        toast(
-            "Nenhuma enquete encontrada. Você já passou por todas."
-        );
+    if (!responsePoll?.data && responsePoll?.status == "success") {
+      toast("Nenhuma enquete encontrada. Você já passou por todas.");
     }
-  }, [responsePoll, navigate])
+  }, [responsePoll, navigate]);
 
   return <></>;
 }

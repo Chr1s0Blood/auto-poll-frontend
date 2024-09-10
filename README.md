@@ -1,50 +1,71 @@
-# React + TypeScript + Vite
+# AutoPoll - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AutoPoll é um projeto que utiliza inteligência artificial Gemini para gerar enquetes aleatória de acordo com categorias populadas.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Geração automática de enquetes com base em categorias.
+- Votar em enquetes
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Backend**: Node.js com Fastify
+- **IA**: Gemini IA (Google)
+- **Banco de Dados**: Prisma ORM com PostgreSQL
+- **Frontend**: Vite (React.js)
 
-- Configure the top-level `parserOptions` property like this:
+### Check-list de implementações
+- [X] Categorias
+- [ ] Gráficos
+- [ ] Página "Sobre"
+- [ ] Página de enquetes já votadas
+- [ ] Indicar categorias quentes
+- Novas ideias serão listas no futuro
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Instalação
+
+Para instalar e rodar o AutoPoll localmente:
+
+1.  Clone este repositório:
+
+    ```bash
+    git clone https://github.com/Chr1s0Blood/autopollauto-poll-frontend.git
+    ```
+
+2.  Entre na pasta clonada e instale as dependências:
+    ```bash
+    npm install
+    ```
+3.  Configure as variáveis de ambiente:
+
+    ```env
+    VITE_BACKEND_URL="http://localhost:3000" # Url do auto-poll backend
+
+    ```
+5. Inicia o server de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+
+## Contribuição
+Sinta-se à vontade para contribuir com o AutoPoll! Segue abaixo o passo a passo para colaborar com o projeto:
+
+1. Faça um fork do repositório.
+
+2. Crie uma nova branch para sua funcionalidade ou correção de bug:
+```bash
+git checkout -b feature/nova-funcionalidade
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. Realize suas alterações e commit suas modificações:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+git commit -m 'Adiciona nova funcionalidade'
 ```
+4. Envie suas mudanças para o repositório remoto:
+
+```bash
+git push origin feature/nova-funcionalidade
+```
+
+5. Abra um Pull Request no repositório original e descreva as mudanças que você fez! :D.
