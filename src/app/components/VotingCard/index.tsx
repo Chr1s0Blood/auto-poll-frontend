@@ -56,7 +56,7 @@ export default function VotingCard({ poll, onVote }: Props) {
                   <Button
                     variant="outline"
                     className={cn(
-                      `w-full h-auto flex-col justify-between p-3`,
+                      `w-full h-auto flex-col justify-between p-3 whitespace-break-spaces`,
                       {
                         "border-primary": selectedOption === option.id,
                       }
