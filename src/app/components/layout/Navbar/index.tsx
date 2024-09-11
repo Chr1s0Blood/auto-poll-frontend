@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={cn("fixed top-0 border-b z-20 backdrop-blur w-full", {
+      className={cn("fixed top-0 border-b z-20 backdrop-blur w-full bg-white", {
         hidden: isFullscrenActive,
       })}
     >
