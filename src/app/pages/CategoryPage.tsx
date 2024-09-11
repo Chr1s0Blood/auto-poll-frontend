@@ -31,7 +31,7 @@ export default function CategoryPage() {
   }, [responseCategories]);
 
   return (
-    <main className="w-full h-full flex justify-center items-center flex-col gap-10 mt-20 sm:mt-8 p-4 md:p-8">
+    <main className="w-full h-full flex justify-center items-center flex-col gap-10 mt-[40rem] sm:mt-8 p-4 md:p-8">
       <header className="text-center">
         <h1 className="text-4xl font-bold mb-2">Categorias</h1>
         <p className="text-muted-foreground">
