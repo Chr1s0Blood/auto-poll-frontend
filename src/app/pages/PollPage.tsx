@@ -45,7 +45,7 @@ export default function PollPage() {
     staleTime: 10000,
   });
 
-  const hanldeVote = useCallback(
+  const handleVote = useCallback(
     async (optionId: string) => {
       const poll = responsePoll?.data;
 
@@ -106,7 +106,7 @@ export default function PollPage() {
           <VotingCard
             key={responsePoll.data.id}
             poll={responsePoll.data}
-            onVote={hanldeVote}
+            onVote={handleVote}
           />
         ) : null}
 
