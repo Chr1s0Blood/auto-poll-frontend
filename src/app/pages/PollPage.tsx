@@ -22,7 +22,7 @@ export default function PollPage() {
 
   const [searchParams] = useSearchParams();
 
-  const categoryCode = searchParams.get('category')
+  const categoryCode = searchParams.get("category");
 
   const { handleFullscreen, isFullscrenActive } = useFullscreen();
 
@@ -45,11 +45,14 @@ export default function PollPage() {
     staleTime: 10000,
   });
 
+  /**
+   * Returns boolean 
+   */
   const handleVote = useCallback(
     async (optionId: string) => {
       const poll = responsePoll?.data;
 
-      if (!poll) return;
+      if (!poll) return false;
 
       const data = {
         questionId: poll.id,
@@ -76,7 +79,10 @@ export default function PollPage() {
         toast.error(response?.message || "Erro no servidor!", {
           duration: 3000,
         });
+        return false;
       }
+
+      return true
     },
     [refetch, responsePoll?.data, userCode]
   );
@@ -122,7 +128,7 @@ export default function PollPage() {
         </div>
       </motion.section>
       <div className="fixed bottom-2 right-2">
-        <Link to={`/p${categoryCode ? `?category=${categoryCode}` : ''}`}>
+        <Link to={`/p${categoryCode ? `?category=${categoryCode}` : ""}`}>
           <Button>Outra enquete</Button>
         </Link>
       </div>

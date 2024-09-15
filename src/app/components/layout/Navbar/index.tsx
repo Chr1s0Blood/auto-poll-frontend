@@ -30,6 +30,11 @@ export default function Navbar() {
                 Sobre
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/me" className={navigationMenuTriggerStyle()}>
+                Meus votos
+              </Link>
+            </NavigationMenuItem>
             <NavigationMenuItem className="size-6">
               <Link
               className="mx-auto"

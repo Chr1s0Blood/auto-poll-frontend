@@ -11,7 +11,7 @@ import { Skeleton } from "../ui/skeleton";
 
 type Props = {
   poll: TQuestionWithOptions;
-  onVote: (optionId: string) => void;
+  onVote: (optionId: string) => Promise<boolean>
 };
 
 export default function VotingCard({ poll, onVote }: Props) {
@@ -24,13 +24,14 @@ export default function VotingCard({ poll, onVote }: Props) {
     0
   );
 
-  const handleVote = (id: string) => {
-    setSelectedOption(id);
-    onVote(id);
+  const handleVote = async (id: string) => {
+    if (selectedOption === id) return;
+    const success = await onVote(id);
+    if (success) setSelectedOption(id);
   };
 
   return (
-    <Card className="w-full max-w-lg mx-auto min-h-fit h-[38rem] sm:h-[32rem]">
+    <Card className="w-full max-w-lg mx-auto min-h-fit h-[38rem] sm:h-[35rem]">
       {poll ? (
         <>
           <CardHeader>

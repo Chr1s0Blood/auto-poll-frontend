@@ -11,6 +11,7 @@ import { Toaster } from "react-hot-toast";
 import InitPollPage from "./app/pages/InitPollPage";
 import PollPage from "./app/pages/PollPage";
 import CategoryPage from "./app/pages/CategoryPage";
+import VoterPollPage from "./app/pages/VoterPollPage";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "/me",
+        element: <VoterPollPage />
       },
       {
         path: "/categories",
