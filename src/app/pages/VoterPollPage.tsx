@@ -102,7 +102,7 @@ export default function VoterPollPage() {
   };
 
   return (
-    <main className="w-full h-full flex flex-col gap-2 mt-[48rem] sm:mt-20">
+    <main className="w-full h-full flex flex-col gap-2 mt-24 sm:mt-20">
       <motion.section
         initial={{ opacity: 0, marginTop: 100 }}
         animate={{ opacity: 1, marginTop: 0 }}
